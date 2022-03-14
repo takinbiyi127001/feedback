@@ -6,10 +6,15 @@ Your review
 
 
 {% block content %}
-<form action="" method="POST">
+<form action="/" method="POST">
     {% csrf_token %}
-    <label for="username">Your name</label>
-    <input id= "username" name="username" type="text">
+{#    {% if has_error %}#}
+{#        <p>This form is invalid - please enter a valid username!</p>#}
+{#    {% endif %}#}
+{#    <label for="username">Your name</label>#}
+{#    <input id= "username" name="username" type="text">#}
+
+    {{ form }}
     <button type="submit">Send</button>
 </form>
 
