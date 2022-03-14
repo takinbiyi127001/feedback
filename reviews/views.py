@@ -24,7 +24,8 @@ def index(request):
         if form.is_valid():
             print(form.cleaned_data)
             return HttpResponseRedirect("/thank-you")
-    form = ReviewForm()
+    else:
+        form = ReviewForm()
 
     context = {
         "form": form
