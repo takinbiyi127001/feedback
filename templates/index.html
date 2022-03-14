@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{#{% load static %}#}
+
 
 {% block title %}
 Your review
 {% endblock %}
 
+{#{% block css_file %}#}
+{##}
+{#{% endblock %}#}
 
 {% block content %}
 <form action="/" method="POST">
@@ -14,7 +19,32 @@ Your review
 {#    <label for="username">Your name</label>#}
 {#    <input id= "username" name="username" type="text">#}
 
-    {{ form }}
+{#<div class="form-control {% if form.user_name.errors %}errors {% endif %} ">#}
+{#        {{ form.user_name.label_tag }}#}
+{#        {{ form.user_name }}#}
+{#        {{ form.user_name.errors }}#}
+{#    </div>#}
+
+{#    {{ form }}#}
+{% for field in form %}
+    <div class="form-control {% if field.errors %}errors {% endif %} ">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+{% endfor %}
+
+
+{#    <div class="form-control {% if form.review_text.errors %}errors {% endif %} ">#}
+{#        {{ form.review_text.label_tag }}#}
+{#        {{ form.review_text }}#}
+{#        {{ form.review_text.errors }}#}
+{#    </div>#}
+{#    </div><div class="form-control {% if form.rating.errors %}errors {% endif %} ">#}
+{#        {{ form.rating.label_tag }}#}
+{#        {{ form.rating }}#}
+{#        {{ form.rating.errors }}#}
+{#    </div>#}
     <button type="submit">Send</button>
 </form>
 
