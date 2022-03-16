@@ -121,3 +121,6 @@ MEDIA_URL = "/user-media/"  # The url to serve to the outside world
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# This help controls the age of the cookies. The default is two week and the unit is secs. 120 = 2 mins
+# SESSION_COOKIE_AGE = 120

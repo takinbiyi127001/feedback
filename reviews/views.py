@@ -8,7 +8,6 @@ from django.views.generic.edit import FormView, CreateView
 from .forms import ReviewForm
 from .models import Review
 
-
 # Create your views here.
 
 """When to use Which View
@@ -23,6 +22,16 @@ DeleteView -> Deleting data from the database"""
 
 
 # Create a class Based views instead of a function views
+
+class AddFavoriteView(View):
+
+    def post(self, request):
+        review_id = request.POST["review_id"]
+        # Store string, dictionary, boolean etc. in database and not object
+        # fav_review = Review.objects.get(pk=review_id)
+        request.session["favorite_review"] = review_id
+        return HttpResponseRedirect("/reviews/" + review_id)
+
 
 class ReviewView(CreateView):
     # We can remove the get and post methods by inheriting from FormView instead of the View
